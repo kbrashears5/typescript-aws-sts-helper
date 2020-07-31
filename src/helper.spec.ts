@@ -5,11 +5,9 @@ import { TestingValues } from './test-values';
 
 const logger = new Logger(LogLevel.Off);
 const mockerResolves = new STSMock(false);
-const stsHelperMockResolves = new STSHelper(logger,
-    mockerResolves.Mock);
+const stsHelperMockResolves = new STSHelper(logger, mockerResolves.Mock);
 const mockerRejects = new STSMock(true);
-const stsHelperMockRejects = new STSHelper(logger,
-    mockerRejects.Mock);
+const stsHelperMockRejects = new STSHelper(logger, mockerRejects.Mock);
 const TestValues = new TestingValues();
 
 /**
