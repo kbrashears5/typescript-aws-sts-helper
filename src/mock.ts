@@ -1,7 +1,5 @@
 import { BaseMock } from 'typescript-helper-functions';
-
-// tslint:disable-next-line: no-var-requires
-const AWS = require('aws-sdk');
+import * as STS from '@aws-sdk/client-sts';
 
 /**
  * STS Mock class
@@ -9,9 +7,9 @@ const AWS = require('aws-sdk');
 export class STSMock extends BaseMock {
 
     /**
-     * Mocks an AWS.STS.AssumeRoleResponse response
+     * Mocks an STS.AssumeRoleResponse response
      */
-    public AssumeRoleResponse: AWS.STS.AssumeRoleResponse = {};
+    public AssumeRoleResponse: STS.AssumeRoleResponse = {};
 
     /**
      * Create the STS mock
@@ -26,13 +24,15 @@ export class STSMock extends BaseMock {
                 promise: jest.fn().mockImplementation(() => {
                     return returnError ?
                         Promise.reject(rejectResponse) :
-                        Promise.resolve<AWS.STS.AssumeRoleResponse>(this.AssumeRoleResponse);
+                        Promise.resolve<STS.AssumeRoleResponse>(this.AssumeRoleResponse);
                 }),
             },
         };
 
+        const options = {} as STS.STSClientConfig;
+
         // create the functions
-        let functions = new AWS.STS();
+        let functions = new STS.STS(options);
         functions = {
             assumeRole: () => awsResponses.assumeRole,
         };
