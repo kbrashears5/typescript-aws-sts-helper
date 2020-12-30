@@ -12,7 +12,7 @@ export class STSHelper extends BaseClass implements ISTSHelper {
     /**
      * AWS Repository for STS
      */
-    public Repository: STS.STS;
+    private Repository: STS.STS;
 
     /**
      * Initializes new instance of STSHelper
