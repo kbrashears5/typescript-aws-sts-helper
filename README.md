@@ -44,3 +44,6 @@ const helper = new STSHelper(logger,
 
 const response = await helper.AssumeRoleAsync('roleArn');
 ```
+
+## Notes
+If no options are supplied, will default to `us-east-1` as the region
