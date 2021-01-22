@@ -2,11 +2,13 @@ import { STSHelper } from './helper';
 import { Logger, LogLevel } from 'typescript-ilogger';
 import { TestingValues } from './test-values';
 
+const error = new Error(`AWS Error`);
+
 const assumeRole = jest.fn().mockImplementation(() => {
-    return Promise.reject(new Error(`AWS Error`));
+    return Promise.reject(error);
 });
 
-// create the functions
+// mock the functions
 jest.mock('@aws-sdk/client-sts', () => {
     return {
         STS: jest.fn().mockImplementation(() => {

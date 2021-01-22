@@ -3,16 +3,13 @@ import { Logger, LogLevel } from 'typescript-ilogger';
 import { TestingValues } from './test-values';
 import * as STS from '@aws-sdk/client-sts';
 
-/**
- * Mocks an STS.AssumeRoleResponse response
- */
-const AssumeRoleResponse: STS.AssumeRoleResponse = {};
+const assumeRoleResponse: STS.AssumeRoleResponse = {};
 
 const assumeRole = jest.fn().mockImplementation(() => {
-    return Promise.resolve<STS.AssumeRoleResponse>(AssumeRoleResponse);
+    return Promise.resolve<STS.AssumeRoleResponse>(assumeRoleResponse);
 });
 
-// create the functions
+// mock the functions
 jest.mock('@aws-sdk/client-sts', () => {
     return {
         STS: jest.fn().mockImplementation(() => {
@@ -40,6 +37,6 @@ describe(`${STSHelper.name}.${stsHelperMock.AssumeRoleAsync.name}`, () => {
     });
     test(TestValues.ValidTest, () => {
         const actual = stsHelperMock.AssumeRoleAsync(TestValues.Arn);
-        return expect(actual).resolves.toEqual(AssumeRoleResponse);
+        return expect(actual).resolves.toEqual(assumeRoleResponse);
     });
 });
