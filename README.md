@@ -34,15 +34,17 @@ const response = await helper.AssumeRoleAsync('roleArn');
 ### Running in separate account or not in Lambda
 
 ```typescript
+import * as STS from '@aws-sdk/client-sts';
+
 const logger = new Logger(LogLevel.Trace);
 
-const options: AWS.STS.ClientConfiguration = {
+const options: STS.STSClientConfig = {
   accessKeyId: '{access_key}',
   secretAccessKey: '{secret_key}',
   region: 'us-east-1',
 };
 
-const repository = new AWS.STS(options);
+const repository = new STS.STS(options);
 
 const helper = new STSHelper(logger, repository);
 
