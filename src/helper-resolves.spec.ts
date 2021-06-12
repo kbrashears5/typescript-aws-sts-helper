@@ -37,7 +37,7 @@ describe(`${STSHelper.name}.${stsHelperMock.AssumeRoleAsync.name}`, () => {
       `[${action}]-${TestValues.MustSupply} roleArn`,
     );
   });
-  test(TestValues.ValidTest, () => {
+  test(`${TestValues.ValidTest}`, () => {
     const actual = stsHelperMock.AssumeRoleAsync(TestValues.Arn);
     return expect(actual).resolves.toEqual(assumeRoleResponse);
   });

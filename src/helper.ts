@@ -14,6 +14,11 @@ export class STSHelper extends BaseClass implements ISTSHelper {
   private Repository: STS.STS;
 
   /**
+   * STS Client Config
+   */
+  private Options: STS.STSClientConfig;
+
+  /**
    * Initializes new instance of STSHelper
    * @param logger {ILogger} Injected logger
    * @param repository {STS.STS} Injected Repository. A new repository will be created if not supplied
@@ -25,10 +30,11 @@ export class STSHelper extends BaseClass implements ISTSHelper {
     options?: STS.STSClientConfig,
   ) {
     super(logger);
-    options = this.ObjectOperations.IsNullOrEmpty(options)
+    this.Options = this.ObjectOperations.IsNullOrEmpty(options)
       ? ({ region: 'us-east-1' } as STS.STSClientConfig)
-      : options!;
-    this.Repository = repository || new STS.STS(options);
+      : // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+        options!;
+    this.Repository = repository || new STS.STS(this.Options);
   }
 
   /**

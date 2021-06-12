@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import * as STS from '@aws-sdk/client-sts';
 
 /**

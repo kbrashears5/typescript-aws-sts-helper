@@ -27,7 +27,7 @@ const TestValues = new TestingValues();
  * Test the AssumeRoleAsync method
  */
 describe(`${STSHelper.name}.${stsHelperMock.AssumeRoleAsync.name}`, () => {
-  test(TestValues.InvalidTest, () => {
+  test(`${TestValues.InvalidTest}`, () => {
     const actual = stsHelperMock.AssumeRoleAsync(TestValues.Arn);
     return expect(actual).rejects.toThrow(TestValues.AWSError);
   });
