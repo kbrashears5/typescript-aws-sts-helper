@@ -1,6 +1,6 @@
 {
   "name": "typescript-aws-sts-helper",
-  "version": "2.0.42",
+  "version": "2.0.43",
   "description": "Typescript AWS STS Helper",
   "repository": {
     "type": "git",
