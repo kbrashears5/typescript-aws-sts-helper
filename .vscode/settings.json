@@ -4,6 +4,7 @@
     "ISTS",
     "Parens",
     "cobertura",
+    "codecov",
     "codeql",
     "eqeqeq",
     "ilogger",

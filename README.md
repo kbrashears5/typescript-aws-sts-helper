@@ -5,7 +5,7 @@
 <b>Typescript helper functions for AWS STS service</b>
     
 [![CI/CD](https://github.com/kbrashears5/typescript-aws-sts-helper/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/kbrashears5/typescript-aws-sts-helper/actions/workflows/ci-cd.yml)
-
+[![codecov](https://codecov.io/gh/kbrashears5/typescript-aws-sts-helper/branch/master/graph/badge.svg?token=PTMIUSG9N9)](https://codecov.io/gh/kbrashears5/typescript-aws-sts-helper)
 [![NPM Version](https://img.shields.io/npm/v/typescript-aws-sts-helper)](https://img.shields.io/npm/v/typescript-aws-sts-helper)
 [![Downloads](https://img.shields.io/npm/dt/typescript-aws-sts-helper)](https://img.shields.io/npm/dt/typescript-aws-sts-helper)
 
